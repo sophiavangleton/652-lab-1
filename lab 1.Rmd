@@ -1,0 +1,16 @@
+---
+title: "lab 1"
+author: "Sophia Angleton"
+date: "2025-01-08"
+output: html_document
+---
+```{r}
+set_key('key')
+```
+
+```{r}
+library(edld652)
+list_datasets()
+```
+
+
