@@ -5,7 +5,8 @@ date: "2025-01-08"
 output: html_document
 ---
 ```{r}
-set_key('key')
+set_key("key")
+get_key()
 ```
 
 ```{r}
