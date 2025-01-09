@@ -19,12 +19,32 @@ part 2 of lab
 ```{r}
 rstats_tweets <- readRDS("~/EDLD_652/652-lab-1/652-lab-1/rstats_tweets.rds")
 
-head(rstats_tweets)
+print(rstats_tweets)
+```
+```{r}
+histo_1 <- rstats_tweets %>% 
+  ggplot(aes(x = display_text_width)) +
+  geom_histogram(bins = 30, color = 'white')
+histo_1
+```
+
+```{r}
+library(tidytext)
+
+tidy_words <- rstats_tweets %>% 
+  count(text, sort = TRUE) %>% 
+filter(grepl("plot", tolower(text))) %>%
+nrow()
+tidy_words
+
 ```
 ```{r}
 rstats_tweets %>% 
-  ggplot(aes(x = display_text_width)) +
-  geom_histogram(bins = 30, color = 'white')
-```
+  count(text, sort = TRUE) %>% 
+  mutate(text = reorder(word, n)) %>% # make y-axis ordered by n
+  slice(1:15) %>% # select only the first 15 rows
+  ggplot(aes(n, word)) +
+    geom_col()
 
+```
 
