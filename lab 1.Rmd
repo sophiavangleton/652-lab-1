@@ -5,5 +5,26 @@ date: "2025-01-08"
 output: html_document
 ---
 
+```{r}
+library(edld652)
+library(tidyverse)
+
+acgd <- get_data("EDFacts_acgr_lea_2011_2019")
+
+acgdd <- get_documentation("EDFacts_acgr_lea_2011_2019")
+```
+
+part 2 of lab
+
+```{r}
+rstats_tweets <- readRDS("~/EDLD_652/652-lab-1/652-lab-1/rstats_tweets.rds")
+
+head(rstats_tweets)
+```
+```{r}
+rstats_tweets %>% 
+  ggplot(aes(x = display_text_width)) +
+  geom_histogram(bins = 30, color = 'white')
+```
 
 
